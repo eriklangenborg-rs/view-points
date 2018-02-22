@@ -139,7 +139,7 @@ function parse_points(points_raw) {
   }
   const points_tsv = parse_tsv(points_raw);
   if (points_tsv != false) {
-    console.log('tsv', points_tsv);
+    // console.log('tsv', points_tsv);
     return points_tsv;
   }
   console.log('Failed to parse', points_raw);
@@ -474,18 +474,18 @@ function init(data) {
     // Do regex (remove #number and spaces for id)
 
     const element_id = cur_sel.replace(/^\w+/, '').replace(/\s+/g, '').replace(/#\d+$/, '');
-    console.log(`Started with ${cur_sel} and ended with ${element_id}`);
+    // console.log(`Started with ${cur_sel} and ended with ${element_id}`);
     const element = document.getElementById(element_id);
     if (element) {
       VueScrollTo.scrollTo(element);
     } else {
       const element_id_num = cur_sel.replace(/^\w+/, '').replace(/\s+/g, '');
-      console.log(`Fall back with ${cur_sel} and ended with ${element_id_num}`);
+      // console.log(`Fall back with ${cur_sel} and ended with ${element_id_num}`);
       const element_num = document.getElementById(element_id);
       if (element_num) {
         VueScrollTo.scrollTo(element_num);
       } else {
-        console.warn(`Unable to find ${cur_sel}`);
+        // console.warn(`Unable to find ${cur_sel}`);
       }
     }
   }
@@ -508,6 +508,7 @@ function init(data) {
       purgeVisible: function () {
         // console.log(this.filter);
         this.pointSets = this.pointSets.filter(set => !set.name.includes(this.filter));
+        this.filter = '';
       },
       toggleVisible: function () {
         const filter = this.filter;

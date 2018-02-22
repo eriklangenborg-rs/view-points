@@ -123,23 +123,23 @@ function valid_point_set(points) {
 function parse_points(points_raw) {
   const points_json = parse_json(points_raw);
   if (points_json != false) {
-    console.log('json', points_json);
+    // console.log('json', points_json);
     return points_json;
   }
   const points_numpy = parse_numpy(points_raw);
   if (points_numpy != false) {
-    console.log('numpy', points_numpy);
+    // console.log('numpy', points_numpy);
     return points_numpy;
   }
   const points_csv = parse_csv(points_raw);
   if (points_csv != false) {
-    console.log('csv', points_csv);
-    console.log(points_csv);
+    // console.log('csv', points_csv);
+    // console.log(points_csv);
     return points_csv;
   }
   const points_tsv = parse_tsv(points_raw);
   if (points_tsv != false) {
-    console.log('tsv', points_tsv);
+    // console.log('tsv', points_tsv);
     return points_tsv;
   }
   console.log('Failed to parse', points_raw);
@@ -462,18 +462,18 @@ function init(data) {
     // Do regex (remove #number and spaces for id)
 
     const element_id = cur_sel.replace(/^\w+/, '').replace(/\s+/g, '').replace(/#\d+$/, '');
-    console.log(`Started with ${cur_sel} and ended with ${element_id}`);
+    // console.log(`Started with ${cur_sel} and ended with ${element_id}`);
     const element = document.getElementById(element_id);
     if (element) {
       VueScrollTo.scrollTo(element);
     } else {
       const element_id_num = cur_sel.replace(/^\w+/, '').replace(/\s+/g, '');
-      console.log(`Fall back with ${cur_sel} and ended with ${element_id_num}`);
+      // console.log(`Fall back with ${cur_sel} and ended with ${element_id_num}`);
       const element_num = document.getElementById(element_id);
       if (element_num) {
         VueScrollTo.scrollTo(element_num);
       } else {
-        console.warn(`Unable to find ${cur_sel}`);
+        // console.warn(`Unable to find ${cur_sel}`);
       }
     }
   }

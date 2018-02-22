@@ -496,6 +496,7 @@ function init(data) {
       purgeVisible: function () {
         console.log(this.filter);
         this.pointSets = this.pointSets.filter(set => !set.name.includes(this.filter));
+        this.filter = '';
       },
       toggleVisible: function () {
         this.pointSets = this.pointSets.map(set => !set.name.includes(this.filter) ? set : R.merge(set, {
